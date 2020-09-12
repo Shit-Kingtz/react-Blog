@@ -1,1 +1,0 @@
-import { Avatar } from 'antd'
