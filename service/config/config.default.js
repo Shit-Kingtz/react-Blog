@@ -35,7 +35,7 @@ module.exports = appInfo => {
       // password
       password: 'root',
       // database
-      database: 'blog',    
+      database: 'blog',
     },
     // load into app, default is open
     app: true,
@@ -44,16 +44,23 @@ module.exports = appInfo => {
   };
 
   config.security = {
-    scrf: {
-      enable: false
+    csrf: {
+      enable: false,
     },
-    domainWhiteList: ['*']
-  }
+    domainWhiteList: [
+      // 'http://127.0.0.1:3000',
+      // 'http://127.0.0.1:7001',
+      // 'http://localhost:3000',
+      // 'http://localhost:7001',
+      '*',
+    ],
+  };
 
   config.cors = {
-    origin: '*',
-    allowMethods: 'HEAD,GET,POST,PUT,DELETE,PATCH,OPTIONS'
-  }
+    origin: 'http://localhost:3000',
+    credentials: true, // 允许cookie可以跨域
+    allowMethods: 'HEAD,GET,POST,PUT,DELETE,PATCH,OPTIONS',
+  };
 
   return {
     ...config,
